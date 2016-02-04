@@ -19,7 +19,11 @@ require 'sinatra'
 require "sinatra/reloader" if development?
 
 require 'erb'
+<<<<<<< HEAD
 require 'bcrypt'
+=======
+require 'twitter'
+>>>>>>> master
 
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
