@@ -11,7 +11,7 @@ post '/users/?' do
   if @user.save
     redirect to :'/'
   else
-    redirect to :'/'
+    erb :'users/new'
   end
 end
 
