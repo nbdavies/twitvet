@@ -16,16 +16,20 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title></title>
+  <title>TwitVet</title>
 </head>
 <body>
   <div class="container">
-    <nav>
-
-    </nav>
     <div class="main">
       <%= yield %>
-    </div>
+    <nav>
+      <ul>
+        <li><a href="/">HOME</a></li>
+        <li><a href="/reports/new">SEARCH</a></li>
+        <li><a href="http://www.twitter.com">TWITTER MAGIC</a></li>
+      </ul>
+    </nav>
+  </div>
   </div>
 </body>
 </html>
