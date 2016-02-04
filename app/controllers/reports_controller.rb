@@ -1,6 +1,8 @@
+
+
 #list of all reports - non-public, for testing only
 get '/reports/?' do
-  @reports = Reports.all
+  @reports = Report.all
   erb :'reports/index'
 end
 #return a HTML form for creating new reports
