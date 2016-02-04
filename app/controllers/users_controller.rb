@@ -19,13 +19,3 @@ end
 get '/users/:id/?' do
   erb :'users/show'
 end
-
-#display page with edit users
-get '/users/:id/edit/?' do
-  erb :'users/edit'
-end
-
-#return a form for editing users
-put '/users/:id/?' do
-  erb :'users/update'
-end
