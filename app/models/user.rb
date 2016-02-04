@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  validate :password_requirements
+  # validate :password_requirements
 
   def password
     @password ||= BCrypt::Password.new(password_hash)
@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
     @password = BCrypt::Password.create(new_password)
     self.password_hash = @password
   end
-  
+
   def self.authenticate(email, password_plaintext)
     user = User.find_by(email: email)
     return user if user && user.password == password_plaintext
