@@ -6,13 +6,13 @@ class User < ActiveRecord::Base
     end
 
     def password=(new_password)
-      @raw_password = new_password
       @password = BCrypt::Password.create(new_password)
       self.password_hash = @password
     end
 
-    def authenticate(password)
-      self.password == password
+    def self.authenticate(email, password_plaintext)
+      user = User.find_by(email: email)
+      return user if user && user.password == password_plaintext
     end
 
     def password_requirements

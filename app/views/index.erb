@@ -7,4 +7,7 @@
 </div>
 <div class="right">
   <%= erb :'users/new' %>
+  <% if current_user %>
+    <form action="/sessions" method="post"><input name="_method" type="hidden" value="delete"><button type="submit" value="logout">Logout</button></form>
+  <% end %>
 </div>
