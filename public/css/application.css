@@ -14,7 +14,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', end
   width: 75%;
   height: 100%;
   background-color: white;
-  padding: 3% 1% 0 1%;
+  padding: 3% 1% 2% 1%;
   border-radius: 10px;
   -webkit-column-count: 2; /* Chrome, Safari, Opera */
     -moz-column-count: 2; /* Firefox */
@@ -36,7 +36,13 @@ nav>ul>li a {
   padding: 10px;
   inline-block;
   text-decoration: none;
+  font-weight: 300;
   color: #4c4c4c;
+}
+
+li a:hover {
+    background-color: #111;
+    color: #D8DFE4;
 }
 
 form {
