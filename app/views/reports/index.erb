@@ -1,0 +1,4 @@
+<h1>All Reports</h1>
+<% @reports.each do |report| %>
+  <a href="/reports/<%= report.id %>"><%= report.name %></a>
+<% end %>
