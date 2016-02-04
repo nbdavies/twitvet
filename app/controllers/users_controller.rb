@@ -5,7 +5,12 @@ end
 
 #create new users
 post '/users/?' do
-  erb :'users/create'
+  @user = User.new(params[:user])
+  if @user.save
+    redirect to :'/'
+  else
+    redirect to :'/'
+  end
 end
 
 #display specific users
