@@ -87,3 +87,7 @@ label, input{
 .details {
   font-size: .9em;
 }
+
+#stats {
+  list-style-type: none;
+}
