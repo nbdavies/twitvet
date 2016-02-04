@@ -19,7 +19,10 @@ require 'sinatra'
 require "sinatra/reloader" if development?
 
 require 'erb'
+<<<<<<< HEAD
 
+=======
+>>>>>>> d9c641efeae07144d703f1f6eaa1848e264cce2f
 require 'bcrypt'
 require 'twitter'
 
