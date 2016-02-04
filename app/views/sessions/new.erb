@@ -1,9 +1,5 @@
-<% if @user.errors %>
-  <ul>
-    <% @user.errors.full_messages.each do |error| %>
-      <li><%= error %></li>
-    <% end %>
-  </ul>
+<% if @errors %>
+  <%= @errors %>
 <% end %>
 
 <form name="login" method="POST" action="/sessions/new">

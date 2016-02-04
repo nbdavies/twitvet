@@ -8,6 +8,7 @@ post '/sessions' do
     session[:user_id] = @user.id
     redirect '/'
   else
+    @errors = "Login failed"
     erb :'sessions/new'
   end
 end
