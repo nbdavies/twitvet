@@ -31,13 +31,14 @@ label, input{
 }
 
 .left, .right {
-  margin: 0 1%;
-  padding: 2%;
+  margin: 0 4%;
+  padding: 4% 1%;
   width: 100%;
   -webkit-column-break-inside: avoid;
             page-break-inside: avoid;
                  break-inside: avoid;
   text-align: center;
+  font-family: Lato;
 }
 
 .left{

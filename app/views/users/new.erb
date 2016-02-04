@@ -1,4 +1,4 @@
-<% if @user.errors %>
+<% if @errors %>
   <ul>
     <% @user.errors.full_messages.each do |error| %>
       <li><%= error %></li>
@@ -11,5 +11,5 @@
   <br>
   <input type="password" name="user[password]" placeholder="Password">
   <br>
-  <input type="submit" value="sign up">
+  <input type="submit" value="SIGN UP">
 </form>
