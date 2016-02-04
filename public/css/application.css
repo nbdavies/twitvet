@@ -14,10 +14,29 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', end
   width: 75%;
   height: 100%;
   background-color: white;
+  padding: 3% 1% 0 1%;
   border-radius: 10px;
   -webkit-column-count: 2; /* Chrome, Safari, Opera */
     -moz-column-count: 2; /* Firefox */
     column-count: 2;
+}
+
+nav {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+nav>ul>li{
+  list-style: none;
+  display: inline-block;
+}
+
+nav>ul>li a {
+  padding: 10px;
+  inline-block;
+  text-decoration: none;
+  color: #4c4c4c;
 }
 
 form {
@@ -32,7 +51,6 @@ label, input{
 
 .left, .right {
   margin: 0 4%;
-  padding: 4% 1%;
   width: 100%;
   -webkit-column-break-inside: avoid;
             page-break-inside: avoid;
@@ -47,4 +65,19 @@ label, input{
 
 .right {
   border-left: solid 4px #D8DFE4;
+}
+
+#summary {
+  width: 100%;
+}
+
+#summary>p {
+  margin: 5%;
+  line-height: 1.5em;
+  letter-spacing: .1em;
+  font-weight: 300;
+}
+
+.details {
+  font-size: .9em;
 }
