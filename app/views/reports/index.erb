@@ -1,4 +1,8 @@
-<h1>All Reports</h1>
-<% @reports.each do |report| %>
-  <a href="/reports/<%= report.id %>"><%= report.name %></a>
-<% end %>
+<div class="left">
+  <h1>All Reports</h1>
+  <ul>
+  <% @reports.each do |report| %>
+    <li><a href="/reports/<%= report.id %>"><%= report.name %></a></li>
+  <% end %>
+  </ul>
+</div>

@@ -1,6 +1,8 @@
+
+
 #list of all reports - non-public, for testing only
 get '/reports/?' do
-  @reports = Reports.all
+  @reports = Report.all
   erb :'reports/index'
 end
 #return a HTML form for creating new reports
@@ -10,9 +12,9 @@ get '/reports/new/?' do
 end
 #create new reports
 post '/reports/?' do
-  @report = Report.new(params[:name])
+  @report = Report.new(name: params[:name])
   @report.parse_twitter
-  redirect '/reports/#{@report.id}'
+  redirect "/reports/#{@report.id}"
 end
 #display specific reports
 get '/reports/:id/?' do
