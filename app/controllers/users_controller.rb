@@ -7,6 +7,7 @@ end
 post '/users/?' do
   @user = User.new(params[:user])
   if @user.save
+    sessions[:user_id] = @user.id
     redirect to :'/'
   else
     redirect to :'/'
