@@ -1,10 +1,7 @@
 <div class="left">
-  <h2>Vet your follows with TwitVet</h2>
+  <h1>Vet your follows with TwitVet</h1>
+  <p></p>
 </div>
 <div class="right">
-  <form name="register" method="POST" action="/users">
-    <input type="text" name="user[email]" placeholder="Email">
-    <input type="password" name="user[password]" placeholder="Password">
-    <input type="submit" value="sign up">
-  </form>
+  <%= erb :'users/new' %>
 </div>

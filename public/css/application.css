@@ -10,11 +10,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', end
 }
 
 .main {
-  margin: 0 auto;
+  margin: 2% auto;
   width: 75%;
   height: 100%;
+  background-color: white;
   border-radius: 10px;
-
+  -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
 }
 
 form {
@@ -28,16 +31,20 @@ label, input{
 }
 
 .left, .right {
-  margin: 2% 3%;
-  padding: 2%;
-  width: 50%;
-  background-color: white;
+  margin: 0 4%;
+  padding: 4% 1%;
+  width: 100%;
+  -webkit-column-break-inside: avoid;
+            page-break-inside: avoid;
+                 break-inside: avoid;
+  text-align: center;
+  font-family: Lato;
 }
 
 .left{
-  float: left;
+  border-right: solid 4px lightgrey;
 }
 
 .right {
-  float: right;
+  border-left: solid 4px #D8DFE4;
 }
