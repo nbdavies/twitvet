@@ -5,6 +5,7 @@ class Report < ActiveRecord::Base
   def parse_twitter
 
     profile_object = $client.user(self.name)
+    p profile_object
     profile = profile_object.to_hash
     follower_ids = $client.follower_ids(self.name).to_a
     friend_ids = $client.friend_ids(self.name).to_a
