@@ -30,10 +30,12 @@
         <strong>Percent of <%= @report.name %>'s followers who get followed back:</strong>
         <p><%= @report.follower_friend_overlap_percent %>%</p>
       </li>
-      <% if @user_handle %>
+      <% if session[:user_handle] %>
         <li>
           <strong>Number of common followers with you</strong>
-          <%= @report.common_followers(@user_handle) %>
+          <p>
+          <%= @report.common_followers(session[:user_handle]) %>
+          </p>
         </li>
       <% end %>
       <li>

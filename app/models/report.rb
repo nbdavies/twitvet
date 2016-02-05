@@ -27,7 +27,9 @@ class Report < ActiveRecord::Base
 
   def common_followers(user_handle)
     user_follower_ids = $client.follower_ids(user_handle).to_a
-    (self.follower_ids & user_follower_ids).length
+    target_follower_ids = self.follower_ids.map {|v| v.to_i}
+    union = (target_follower_ids & user_follower_ids)
+    union.length
   end
 
   def repetition(newest_tweets)
