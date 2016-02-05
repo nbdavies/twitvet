@@ -16,6 +16,7 @@ class Report < ActiveRecord::Base
     self.follower_friend_overlap_percent = followed_friends(follower_ids, friend_ids)
     self.repetition_percent = repetition(newest_tweets)
     self.faved_retweeted_percent = faved_retweeted(newest_tweets)
+    self.score = self.tally
     self.save
   end
 
