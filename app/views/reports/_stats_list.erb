@@ -33,7 +33,7 @@
       <li>
         <strong>Ever updated their profile picture?</strong>
         <p>
-          <% if @report.follower_friend_overlap_percent %>
+          <% if @report.has_default_image %>
           yes
           <% else %>
           no
