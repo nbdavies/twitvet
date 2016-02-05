@@ -1,10 +1,5 @@
 <div class="left">
-  <% if current_user %>
-    <h2>Welcome to TwitVet, <%= current_user.email %></h2>
-  <% else %>
-    <h2>Welcome to TwitVet.</h2>
-  <% end %>
-  <p>Search for any twitter handle and see what comes up.</p>
+  <%= erb :'reports/_greet_user' %>
 </div>
 <div class="right">
   <div class="report">
