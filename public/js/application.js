@@ -6,7 +6,7 @@ $(document).ready(function() {
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
   //$(document).on("pageload", function () {
     var backgroundColor;
-    var score = $("#score").text();
+    var score = $("#score").find('p').text();
     var $report = $(".main");
     if (score > 90) {
       $report.css("background-color", "#CCFFCC");

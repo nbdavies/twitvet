@@ -8,4 +8,11 @@
 </div>
 <div class="right">
   <%= erb :'reports/_search_bar' %>
+  <% if @errors %>
+  <ul>
+    <% @report.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
 </div>

@@ -3,11 +3,15 @@ class Report < ActiveRecord::Base
   belongs_to :requestor, class_name: "User"
 
   def parse_twitter
-    profile = $client.user(self.name).to_hash
+
+    profile_object = $client.user(self.name)
+    profile = profile_object.to_hash
     follower_ids = $client.follower_ids(self.name).to_a
     friend_ids = $client.friend_ids(self.name).to_a
     newest_tweets = $client.user_timeline(name, {count: 200}).to_a
 
+    self.profile_image_url = profile_object.profile_image_uri(size = :original).to_s
+    self.description       = profile[:description]
     self.has_default_image = profile[:default_profile_image]
     self.total_tweets      = profile[:statuses_count]
     self.followers_count   = profile[:followers_count]
