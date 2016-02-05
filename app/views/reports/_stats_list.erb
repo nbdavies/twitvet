@@ -30,6 +30,18 @@
         <strong>Percent of <%= @report.name %>'s followers who get followed back:</strong>
         <p><%= @report.follower_friend_overlap_percent %>%</p>
       </li>
+      <% if session[:user_handle] %>
+        <li>
+          <strong>Number of common followers with you</strong>
+          <p>
+          <%= @report.common_followers(session[:user_handle]) %>
+          </p>
+        </li>
+      <% end %>
+      <li>
+        <strong><%= @report.name %>'s average tweets per day</strong>
+        <p><%= @report.tweets_per_day  %></p>
+      </li>
       <li>
         <strong>Ever updated their profile picture?</strong>
         <p>

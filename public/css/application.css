@@ -139,3 +139,18 @@ input[type="submit"]:active {
   line-height: .25em;
 
 }
+.red {
+  background-color: #FFCCCC;
+}
+.yellow {
+  background-color: #FFFFCC;
+}
+.green {
+  background-color: #CCFFCC;
+}
+.leaders {
+  text-align: left;
+  width: 82%;
+  list-style: none;
+  margin-left: 0;
+}
