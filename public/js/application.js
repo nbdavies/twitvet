@@ -4,4 +4,16 @@ $(document).ready(function() {
   // when we try to bind to them
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  //$(document).on("pageload", function () {
+    var backgroundColor;
+    var score = $("#score").text();
+    var $report = $(".main");
+    if (score > 90) {
+      $report.css("background-color", "#CCFFCC");
+    } else if (score > 75) {
+      $report.css("background-color", "#FFFFCC");
+    } else if (score > 0) {
+      $report.css("background-color", "#FFCCCC");
+    };
+  //});
 });
