@@ -12,13 +12,14 @@ get '/reports/new/?' do
 end
 #create new reports
 post '/reports/?' do
-  @report = Report.find_or_create_by(name: params[:name])
+  redirect '/sessions/new' if !current_user
+  @report = current_user.reports.find_or_create_by(name: params[:name])
   @report.parse_twitter if !@report.start_date
   redirect "/reports/#{@report.id}"
 end
 #display specific reports
 get '/reports/:id/?' do
-  redirect '/' if !current_user
+  redirect '/sessions/new' if !current_user
   @report = Report.find_by(id: params[:id])
   erb :'reports/show'
 end
