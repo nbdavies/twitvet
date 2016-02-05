@@ -75,4 +75,15 @@ class Report < ActiveRecord::Base
   def age_days
     (Date.today - self.start_date).numerator
   end
+
+  def color
+    return "" if !score
+    if score >= 90
+      return "green"
+    elsif score >= 75
+      return "yellow"
+    else
+      return "red"
+    end
+  end
 end

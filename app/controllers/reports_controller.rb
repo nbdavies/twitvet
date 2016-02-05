@@ -2,7 +2,7 @@
 
 #list of all reports - non-public, for testing only
 get '/reports/?' do
-  @reports = Report.all
+  @reports = Report.all.sort_by{|report| report.score || 0}.reverse
   erb :'reports/index'
 end
 #return a HTML form for creating new reports
@@ -13,8 +13,9 @@ end
 #create new reports
 post '/reports/?' do
   redirect '/sessions/new' if !current_user
-  @report = current_user.reports.find_or_create_by(name: params[:name])
   session[:user_handle] = params[:user_handle]
+  @report = Report.find_by(name: params[:name])
+  @report = current_user.reports.create(name: params[:name]) if !@report
   @report.parse_twitter if !@report.start_date
   redirect "/reports/#{@report.id}"
 end

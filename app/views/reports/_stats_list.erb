@@ -39,6 +39,10 @@
         </li>
       <% end %>
       <li>
+        <strong><%= @report.name %>'s average tweets per day</strong>
+        <p><%= @report.tweets_per_day  %></p>
+      </li>
+      <li>
         <strong>Ever updated their profile picture?</strong>
         <p>
           <% if @report.has_default_image %>
