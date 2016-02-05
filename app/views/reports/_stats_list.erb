@@ -1,6 +1,11 @@
 <div class="report">
-    <h3>Stats for <%= @report.name %></h3>
+    <h3>Stats for <a href="http://www.twitter.com/<%= @report.name %>">@<%= @report.name %></a></h3>
+    <span class="updated">Retrieved at: <%= @report.updated_at %></span>
     <ul id="stats">
+      <li>
+        <strong>Overall score:</strong>
+        <p id="score"><%= @report.tally %></p>
+      </li>
       <li>
         <strong>Total number of tweets:</strong>
         <p><%= @report.total_tweets %></p>
@@ -28,7 +33,7 @@
       <li>
         <strong>Ever updated their profile picture?</strong>
         <p>
-          <% if @report.follower_friend_overlap_percent %>
+          <% if @report.has_default_image %>
           yes
           <% else %>
           no
