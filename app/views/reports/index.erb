@@ -1,11 +1,14 @@
 <div class="left">
   <%= erb :'reports/_greet_user' %>
 </div>
-<div class="left">
-  <h1>All Reports</h1>
-  <ul>
+<div class="right">
+  <h1>Leader Board</h1>
+  <ul class="leaders">
   <% @reports.each do |report| %>
-    <li><a href="/reports/<%= report.id %>"><%= report.name %></a></li>
+    <li class="<%= report.color %>">
+    	<a href="/reports/<%= report.id %>"><%= report.name %></a>
+    	(<%= report.score %>)
+    </li>
   <% end %>
   </ul>
 </div>
