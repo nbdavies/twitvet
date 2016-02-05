@@ -48,9 +48,9 @@ class Report < ActiveRecord::Base
     points[:overlap] = (self.follower_friend_overlap_percent.to_f / 10).to_i
     points[:faved_retweeted] = (self.faved_retweeted_percent.to_f / 10).to_i
     points[:free] = 30
-    # friends in common
-    # association with baddies
-    # usage of bad hash tags
+    # friends in common - 1 additional friends_list API call
+    # association with baddies - 1 additional friends_list API call
+    # usage of bad hash tags -
     points.values.reduce(:+)
   end
 
