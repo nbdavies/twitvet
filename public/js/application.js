@@ -7,7 +7,7 @@ $(document).ready(function() {
   //$(document).on("pageload", function () {
     var backgroundColor;
     var score = $("#score").find('p').text();
-    var $report = $(".main");
+    var $report = $(".colorify");
     if (score > 90) {
       $report.css("background-color", "#CCFFCC");
     } else if (score > 75) {
@@ -16,4 +16,17 @@ $(document).ready(function() {
       $report.css("background-color", "#FFCCCC");
     };
   //});
+
+    $('#search-bar').on("submit", function (event) {
+      event.preventDefault();
+      var request = $.ajax({
+                    url: "/reports",
+                    method: "post",
+                    data: $(this).serialize()
+                    }); // request sent
+      request.done(function(response){
+        // console.log(typeof response);
+        // $(".errors").append(response);
+      }); // response back
+    })
 });
