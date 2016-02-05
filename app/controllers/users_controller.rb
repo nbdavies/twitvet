@@ -10,7 +10,7 @@ post '/users/?' do
   @errors = @user.errors.full_messages
   if @user.save
     session[:user_id] = @user.id
-    redirect to :'/'
+    redirect to '/'
   else
     erb :'users/new'
   end
@@ -18,5 +18,7 @@ end
 
 #display specific users
 get '/users/:id/?' do
+  @user = User.find(params[:id])
+  redirect to "/" unless @user.id == session[:user_id]
   erb :'users/show'
 end
