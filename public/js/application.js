@@ -17,16 +17,4 @@ $(document).ready(function() {
     };
   //});
 
-    $('#search-bar').on("submit", function (event) {
-      event.preventDefault();
-      var request = $.ajax({
-                    url: "/reports",
-                    method: "post",
-                    data: $(this).serialize()
-                    }); // request sent
-      request.done(function(response){
-        // console.log(typeof response);
-        // $(".errors").append(response);
-      }); // response back
-    })
 });
