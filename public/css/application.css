@@ -92,3 +92,6 @@ label, input{
   list-style-type: none;
   text-align: left;
 }
+.updated {
+  font-style: italic;
+}
