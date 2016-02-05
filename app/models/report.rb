@@ -22,28 +22,30 @@ class Report < ActiveRecord::Base
 
   def repetition(newest_tweets)
     text = newest_tweets.map(&:full_text)
-    count = newest_tweets.length
+    count = (newest_tweets.length > 0 ? newest_tweets.length : 1)
     return percentage(repeat_count(text).to_f / count)
   end
 
   def followed_friends(follower_ids, friend_ids)
     followed_friends = follower_ids & friend_ids
-    percentage(followed_friends.length.to_f / follower_ids.count)
+    follower_count = (follower_ids.count > 0 ? follower_ids.count : 1)
+    percentage(followed_friends.length.to_f / follower_count)
   end
 
   def faved_retweeted(newest_tweets)
     faved_or_rtd_tweets = newest_tweets.reject do |tweet|
       tweet.favorite_count + tweet.retweet_count == 0
     end
-    percentage(faved_or_rtd_tweets.length.to_f / newest_tweets.length)
+    tweet_count = (newest_tweets.count > 0 ? newest_tweets.count : 1)
+    percentage(faved_or_rtd_tweets.length.to_f / tweet_count)
   end
 
   def tally
     points = {}
     points[:image] = (self.has_default_image ? 0 : 10)
-    points[:tweet_rate] = 10 - Math.sqrt(self.tweets_per_day).to_i # 0 > 10 pts, 100 > 0 pts, 1000 > -21 pts (and you have an addiction)
-    points[:follower_count] = Math.log2(self.followers_count).to_i # 1,000 followers > ~10 pts, 2,000 > 10.9
-    points[:age] = Math.log2(self.age_days).to_i # 6 mos > 7.5 pts, 10 yrs > 11.8 pts
+    points[:tweet_rate] = 10 - log_scale(self.tweets_per_day).to_i 
+    points[:follower_count] = log_scale(self.followers_count).to_i # 1,000 followers > ~10 pts, 2,000 > 10.9
+    points[:age] = log_scale(self.age_days).to_i # 6 mos > 7.5 pts, 10 yrs > 11.8 pts
     points[:repetition] = 10 - (self.repetition_percent.to_f / 10).to_i
     points[:overlap] = (self.follower_friend_overlap_percent.to_f / 10).to_i
     points[:faved_retweeted] = (self.faved_retweeted_percent.to_f / 10).to_i
@@ -55,7 +57,7 @@ class Report < ActiveRecord::Base
   end
 
   def tweets_per_day
-    self.total_tweets / self.age_days
+    self.total_tweets / (self.age_days > 0 ? self.age_days : 1)
   end
 
   def age_days
@@ -63,16 +65,4 @@ class Report < ActiveRecord::Base
   end
 end
 
-def repeat_count(array)
-  max = 0
-  counts = Hash.new(0)
-  array.each do |tweet|
-    counts[tweet] += 1
-    max = counts[tweet] if counts[tweet] > max
-  end
-  max - 1
-end
 
-def percentage(ratio)
-  (ratio * 100).to_i
-end
