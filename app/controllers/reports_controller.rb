@@ -14,6 +14,7 @@ end
 post '/reports/?' do
   redirect '/sessions/new' if !current_user
   @report = current_user.reports.find_or_create_by(name: params[:name])
+  @user_handle = params[:user_handle]
   @report.parse_twitter if !@report.start_date
 
   redirect "/reports/#{@report.id}"
