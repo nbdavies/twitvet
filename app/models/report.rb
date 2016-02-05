@@ -47,7 +47,7 @@ class Report < ActiveRecord::Base
   def tally
     points = {}
     points[:image] = (self.has_default_image ? 0 : 10)
-    points[:tweet_rate] = 10 - log_scale(self.tweets_per_day).to_i 
+    points[:tweet_rate] = 10 - log_scale(self.tweets_per_day).to_i
     points[:follower_count] = log_scale(self.followers_count).to_i # 1,000 followers > ~10 pts, 2,000 > 10.9
     points[:age] = log_scale(self.age_days).to_i # 6 mos > 7.5 pts, 10 yrs > 11.8 pts
     points[:repetition] = 10 - (self.repetition_percent.to_f / 10).to_i
