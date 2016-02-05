@@ -91,3 +91,7 @@ label, input{
   list-style-type: none;
   text-align: left;
 }
+
+#stats>li>p {
+  font-size: 1.25em;
+}
