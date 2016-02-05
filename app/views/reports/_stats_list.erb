@@ -20,23 +20,23 @@
       </li>
       <li>
         <strong>Percent of tweets repeated:</strong>
-        <p><%= @report.repetition_percent %></p>
+        <p><%= @report.repetition_percent %>%</p>
       </li>
       <li>
         <strong>Percent of tweets faved or retweeted:</strong>
-        <p><%= @report.faved_retweeted_percent %></p>
+        <p><%= @report.faved_retweeted_percent %>%</p>
       </li>
       <li>
         <strong>Percent of <%= @report.name %>'s followers who get followed back:</strong>
-        <p><%= @report.follower_friend_overlap_percent %></p>
+        <p><%= @report.follower_friend_overlap_percent %>%</p>
       </li>
       <li>
         <strong>Ever updated their profile picture?</strong>
         <p>
           <% if @report.has_default_image %>
-          yes
-          <% else %>
           no
+          <% else %>
+          yes
           <% end %>
         </p>
       </li>
