@@ -13,10 +13,10 @@ end
 #create new reports
 post '/reports/?' do
   redirect '/sessions/new' if !current_user
+  session[:user_handle] = params[:user_handle]
   @report = Report.find_by(name: params[:name])
   @report = current_user.reports.create(name: params[:name]) if !@report
   @report.parse_twitter if !@report.start_date
-
   redirect "/reports/#{@report.id}"
 end
 #display specific reports

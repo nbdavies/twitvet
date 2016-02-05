@@ -10,6 +10,7 @@ class Report < ActiveRecord::Base
     friend_ids = $client.friend_ids(self.name).to_a
     newest_tweets = $client.user_timeline(name, {count: 200}).to_a
 
+    self.follower_ids      = follower_ids
     self.profile_image_url = profile_object.profile_image_uri(size = :original).to_s
     self.description       = profile[:description]
     self.has_default_image = profile[:default_profile_image]
@@ -22,6 +23,13 @@ class Report < ActiveRecord::Base
     self.faved_retweeted_percent = faved_retweeted(newest_tweets)
     self.score = self.tally
     self.save
+  end
+
+  def common_followers(user_handle)
+    user_follower_ids = $client.follower_ids(user_handle).to_a
+    target_follower_ids = self.follower_ids.map {|v| v.to_i}
+    union = (target_follower_ids & user_follower_ids)
+    union.length
   end
 
   def repetition(newest_tweets)
@@ -79,5 +87,3 @@ class Report < ActiveRecord::Base
     end
   end
 end
-
-
