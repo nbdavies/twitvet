@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   # validate :password_requirements
+  has_many :reports, foreign_key: "requestor_id"
 
   def password
     @password ||= BCrypt::Password.new(password_hash)
