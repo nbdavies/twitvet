@@ -23,7 +23,6 @@ end
 
 group :test, :development do
   gem 'factory_girl'
-  gem 'faker'
 end
 
 gem 'puma'
