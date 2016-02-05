@@ -12,8 +12,8 @@ get '/reports/new/?' do
 end
 #create new reports
 post '/reports/?' do
-  @report = Report.new(name: params[:name])
-  @report.parse_twitter
+  @report = Report.find_or_create_by(name: params[:name])
+  @report.parse_twitter if !@report.start_date
   redirect "/reports/#{@report.id}"
 end
 #display specific reports

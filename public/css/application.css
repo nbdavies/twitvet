@@ -71,8 +71,6 @@ label, input{
 
 .right {
   border-left: solid 4px #D8DFE4;
-  width: 99%;
-  box-sizing: border-box;
 }
 
 #summary {

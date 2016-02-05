@@ -7,12 +7,12 @@ $(document).ready(function() {
   //$(document).on("pageload", function () {
     var backgroundColor;
     var score = $("#score").text();
-    var $report = $(".right");
+    var $report = $(".main");
     if (score > 90) {
       $report.css("background-color", "#CCFFCC");
     } else if (score > 75) {
       $report.css("background-color", "#FFFFCC");
-    } else {
+    } else if (score > 0) {
       $report.css("background-color", "#FFCCCC");
     };
   //});
